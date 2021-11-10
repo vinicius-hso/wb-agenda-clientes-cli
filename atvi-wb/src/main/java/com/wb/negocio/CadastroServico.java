@@ -18,36 +18,32 @@ public class CadastroServico extends Cadastro {
 
 	@Override
 	public void cadastrar() {
-		System.out.println("Início do cadastro do serviço");
-		System.out.println("Por favor informe o nome do serviço:");
+		System.out.println("\n💇💅  CADASTRO DE SERVIÇO:");
+		System.out.println("\n🟡 Informe: ");
+		System.out.print("\nℹ️  Nome do serviço: ");
 		String nome = entrada.receberTexto();
-		System.out.println("Por favor informe o preço: R$");
+		System.out.print("ℹ️  Preço: R$ ");
 		Double preco = entrada.receberNumeroDouble();
-		System.out.println("Por favor informe o código do serviço:");
+		System.out.print("ℹ️  Código do Produto: ");
 		int codigo = entrada.receberNumeroInteiro();
 		
-		System.out.println("Por favor informe a categoria do produto:");
-		System.out.println("[1] - Feminino\n[2] - Masculino\n");
+		System.out.print("\n🟡 Categoria do produto\n\n1️⃣  - Feminino\n2️⃣  - Masculino\n");
 		int categoria = entrada.receberNumeroInteiro();
 		switch (categoria) {
 			case 1:
 				Servico servicoF = new ServicoFeminino(nome, preco, codigo);
 				this.servicos.add(servicoF);
-				System.out.println("Produto cadastrado com sucesso!\n");
+				System.out.println("\n✅ Produto Cadastrado!\n");
 				break;
 			case 2:
 				Servico servicoM = new ServicoMasculino(nome, preco, codigo);
 				this.servicos.add(servicoM);
-				System.out.println("Produto cadastrado com sucesso!\n");
+				System.out.println("\n✅ Serviço Cadastrado!\n");
 				break;
 			default:
-				System.out.println("Operação não entendida");
+				System.out.println("\n🚫 Operação inválida!\n");
 		}
 		
-		
-	
-//		Produto produto = new Produto(nome, preco, categoria, codigo);
-//		this.produtos.add(produto);
 	}
 
 }

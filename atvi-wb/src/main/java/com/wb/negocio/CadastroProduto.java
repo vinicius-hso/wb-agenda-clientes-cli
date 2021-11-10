@@ -18,32 +18,32 @@ public class CadastroProduto extends Cadastro {
 
 	@Override
 	public void cadastrar() {
-		System.out.println("Início do cadastro do produto");
-		System.out.println("Por favor informe o nome do produto:");
+		System.out.println("\n📦  CADASTRO DE PRODUTO:");
+		System.out.println("\n🟡 Informe: ");
+		System.out.print("\nℹ️  Nome do produto: ");
 		String nome = entrada.receberTexto();
-		System.out.println("Por favor informe o preço: R$");
+		System.out.print("ℹ️  Preço: R$ ");
 		Double preco = entrada.receberNumeroDouble();
-		System.out.println("Por favor informe o código do produto:");
+		System.out.print("ℹ️  Código do Produto: ");
 		int codigo = entrada.receberNumeroInteiro();
-		System.out.println("Por favor informe o código do produto:");
-		String fornecedor = entrada.receberTexto();
+		// System.out.print("\nℹ️  Fornecedor:");
+		// String fornecedor = entrada.receberTexto();
 		
-		System.out.println("Por favor informe a categoria do produto:");
-		System.out.println("[1] - Feminino\n[2] - Masculino\n");
+		System.out.print("\n🟡 Categoria do produto\n\n1️⃣  - Feminino\n2️⃣  - Masculino\n");
 		int categoria = entrada.receberNumeroInteiro();
 		switch (categoria) {
 			case 1:
-				Produto produtoF = new ProdutoFeminino(nome, preco, fornecedor, codigo);
+				Produto produtoF = new ProdutoFeminino(nome, preco, codigo);
 				this.produtos.add(produtoF);
-				System.out.println("Produto cadastrado com sucesso!\n");
+				System.out.println("\n✅ Produto Cadastrado!\n");
 				break;
 			case 2:
-				Produto produtoM = new ProdutoMasculino(nome, preco, fornecedor, codigo);
+				Produto produtoM = new ProdutoMasculino(nome, preco, codigo);
 				this.produtos.add(produtoM);
-				System.out.println("Produto cadastrado com sucesso!\n");
+				System.out.println("\n✅ Produto Cadastrado!\n");
 				break;
 			default:
-				System.out.println("Operação não entendida");
+				System.out.println("\n🚫 Operação inválida!\n");
 		}
 		
 		

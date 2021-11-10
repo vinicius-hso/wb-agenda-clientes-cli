@@ -21,40 +21,72 @@ public class CadastroCliente extends Cadastro {
 
 	@Override
 	public void cadastrar() {
-		System.out.println("Início do cadastro do cliente");
-		System.out.println("Por favor informe o nome do cliente:");
+		System.out.println("\n🗄️  CADASTRO DE CLIENTE:");
+		System.out.println("\n🟡 Informe: ");
+		System.out.print("\nℹ️  Nome: ");
 		String nome = entrada.receberTexto();
-		System.out.println("Por favor informe o nome social do cliente:");
+		System.out.print("ℹ️  Nome Social: ");
 		String nomeSocial = entrada.receberTexto();
-		System.out.println("Por favor informe o gênero: ");
-		String genero = entrada.receberTexto();
-		System.out.println("Por favor informe o número do cpf:");
+		String g = "";
+
+		boolean exec = true;
+		while (exec) {
+			System.out.println("\n🟡 Gênero: ");
+			System.out.print("\n1️⃣  - Masculino\n2️⃣  - Feminino\n3️⃣  - Outro\n");
+			System.out.print("\n🟡 Operação desejada: ");
+			int operacao = entrada.receberNumeroInteiro();
+			switch (operacao) {
+				case 1:
+					g = "M";
+					exec = false;
+					break;
+				case 2:
+					g = "F";
+					exec = false;
+					break;
+				case 3:
+					g = "Outro";
+					exec = false;
+					break;
+				default:
+					break;
+			}
+		}
+		String genero = g;
+
+		entrada = new Entrada();
+		System.out.print("\nℹ️  CPF: ");
 		String valor = entrada.receberTexto();
-		System.out.println("Por favor informe a data de emissão do cpf, no padrão dd/mm/yyyy:");
+		System.out.print("ℹ️  Data de Emissão CPF [dd/mm/yyyy]: ");
 		String data = entrada.receberTexto();
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate dataEmissao = LocalDate.parse(data, formato);
 		CPF cpf = new CPF(dataEmissao, valor);
+		
 		Cliente cliente = new Cliente(nome, nomeSocial, genero, cpf, telefones);
 		
-		while(true) {
-			System.out.println("Por favor informe o telefone de contato\n\nDDD: ");
-//			String ddd = entrada.receberTexto();
-//			System.out.println("Número: ");
-//			String numero = entrada.receberTexto();
-//			Telefone telefone = new Telefone(ddd, numero);
-			
-			Cadastro cadastroTelefone = new CadastroTelefone(cliente.getTelefones());
-			cadastroTelefone.cadastrar();
-			System.out.println("Cadastro de telefone realizado com sucesso!\n");			
-			System.out.println("Cadastrar outro telefone?\n[1] - Sim\n[0] - Não");
+		Cadastro cadastroTelefone = new CadastroTelefone(cliente.getTelefones());
+		cadastroTelefone.cadastrar();
+		
+		int flag = 1;
+		while(flag == 1) {
+			System.out.print("🟡 Cadastrar outro telefone?\n\n1️⃣  - Sim\n2️⃣  - Não\n");
+			System.out.print("\n🟡 Operação desejada: ");
 			int operacao = entrada.receberNumeroInteiro();
-			if (operacao == 0) break;
-			else if (operacao != 1) {
-				System.out.println("Operação inválida!");
+			switch(operacao) {
+				case 2:
+					flag = 0;
+					break;
+				case 1:
+					cadastroTelefone.cadastrar();
+					break;
+				default:
+					System.out.println("\n🚫 Operação inválida!\n");
+					break;
 			}
 		}
 		
 		this.clientes.add(cliente);
+		System.out.println("\n✅ Cliente cadastrado com sucesso!\n");
 	}
 }

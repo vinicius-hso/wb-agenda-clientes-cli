@@ -13,13 +13,12 @@ public class ListarTodosProdutos extends Listagem {
 
 	@Override
 	public void listar() {
-		System.out.println("Lista de todos os produtos:");
+		System.out.println("\n🛍️  LISTA DE PRODUTOS:");
 		for (Produto produto : produtos) {
-			System.out.println("Nome: " + produto.nome);
-			System.out.println("Preço: " + produto.preco);
-			System.out.println("Categoria: " + produto.categoria);
-			System.out.println("Código: " + produto.codigo);
-			System.out.println("--------------------------------------");
+			System.out.println("\n🔸 Nome: " + produto.nome);
+			System.out.println("🔸 Preço: " + produto.preco);
+			System.out.println("🔸 Categoria: " + produto.categoria);
+			System.out.println("🔸 Código: " + produto.codigo);
 		}
 	}
 
