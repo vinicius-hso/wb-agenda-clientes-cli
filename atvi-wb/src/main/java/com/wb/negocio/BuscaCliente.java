@@ -42,7 +42,7 @@ public class BuscaCliente extends Busca {
                         break;
                     case 2:
                         clientes.remove(cli);
-                        System.out.println("\n✅ Cliente removido com sucesso!\n");
+                        System.out.println("\n✅ Cliente removido com sucesso!");
                         break;
                     case 3:
                         break;

@@ -4,6 +4,7 @@ import com.wb.io.Entrada;
 import com.wb.modelo.Empresa;
 import com.wb.negocio.Busca;
 import com.wb.negocio.BuscaCliente;
+import com.wb.negocio.BuscaProduto;
 import com.wb.negocio.Cadastro;
 import com.wb.negocio.CadastroCliente;
 import com.wb.negocio.CadastroConsumo;
@@ -90,7 +91,8 @@ public class App {
 						listagemProdutos.listar();
 						break;
 					case 3:
-						
+						Busca buscaProduto = new BuscaProduto(empresa.getProdutos());
+						buscaProduto.buscar();
 						break;
 					case 4:
 						break;

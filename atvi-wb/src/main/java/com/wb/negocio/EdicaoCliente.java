@@ -108,8 +108,9 @@ public class EdicaoCliente extends Edicao{
                                 break;
                             case 3:
                                 int i = 0;
+                                System.out.println("\n📞 Telefones:\n");
                                 for (Telefone telefone : cliente.getTelefones()) {
-                                    System.out.println("🔸 [" + i+1 + "] " + "(" + telefone.getDdd() + ") " + telefone.getNumero());
+                                    System.out.println("🔸 [" + Integer.sum(i,1) + "] " + "(" + telefone.getDdd() + ") " + telefone.getNumero());
                                     ++i;
                                 }
                                 System.out.print("\n🟡 Qual telefone deseja deletar? ");
@@ -121,7 +122,7 @@ public class EdicaoCliente extends Edicao{
                                     operacaoDelTel = entrada.receberNumeroInteiro();
                                 }
                                 cliente.getTelefones().remove(operacaoDelTel-1);
-                                System.out.println("\n✅ Telefone deletado com sucesso!\n");
+                                System.out.println("\n✅ Telefone deletado com sucesso!");
                                 break;
                             case 4:
                                 execEdicaoTel = false;

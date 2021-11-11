@@ -2,13 +2,23 @@ package com.wb.modelo;
 
 import java.time.LocalDate;
 
-public abstract class Produto {
+public class Produto {
 	public String nome;
 	public Double preco;
 	public String categoria;
-	public String fornecedor;
+	// public String fornecedor;
 	public int codigo;
 	public LocalDate dataCadastro;
+	public String tipo;
+
+	public Produto(String nome, Double preco, String categoria, int codigo, String tipo) {
+		this.nome = nome;
+		this.preco = preco;
+		this.categoria = categoria;
+		this.codigo = codigo;
+		this.tipo = tipo;
+		this.dataCadastro = LocalDate.now();
+	}
 	
 	public String getNome() {
 		return nome;
@@ -26,13 +36,13 @@ public abstract class Produto {
 		this.preco = preco;
 	}
 	
-	public String getFornecedor() {
-		return fornecedor;
-	}
+	// public String getFornecedor() {
+	// 	return fornecedor;
+	// }
 
-	public void setFornecedor(String fornecedor) {
-		this.fornecedor = fornecedor;
-	}
+	// public void setFornecedor(String fornecedor) {
+	// 	this.fornecedor = fornecedor;
+	// }
 
 	public String getCategoria() {
 		return categoria;
@@ -56,5 +66,13 @@ public abstract class Produto {
 
 	public void setDataCadastro(LocalDate dataCadastro) {
 		this.dataCadastro = dataCadastro;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 }

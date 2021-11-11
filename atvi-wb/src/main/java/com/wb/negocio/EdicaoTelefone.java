@@ -15,11 +15,12 @@ public class EdicaoTelefone extends Edicao{
     @Override
     public void editar() {
         int i = 0;
+        System.out.println("\n📞 Telefones:\n");
         for (Telefone telefone : telefones) {
-            System.out.println("🔸 [" + i+1 + "] " + "(" + telefone.getDdd() + ") " + telefone.getNumero());
+            System.out.println("🔸 [" + Integer.sum(i,1) + "] " + "(" + telefone.getDdd() + ") " + telefone.getNumero());
             ++i;
         }
-        System.out.print("\n🟡 Qual telefone deseja editar? ");
+        System.out.print("\n🟡 Qual telefone deseja editar?");
         Entrada entrada = new Entrada();
         int operacao = entrada.receberNumeroInteiro();
         while (operacao < 1 || operacao > telefones.size()) {
@@ -37,5 +38,4 @@ public class EdicaoTelefone extends Edicao{
         telefones.add(novoTel);
         System.out.println("\n✅ Telefone editado com sucesso!\n");
     }
-    
 }
