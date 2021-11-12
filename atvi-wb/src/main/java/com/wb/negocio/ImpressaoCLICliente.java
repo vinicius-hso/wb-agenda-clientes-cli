@@ -18,6 +18,11 @@ public class ImpressaoCLICliente implements ImpressaoCLI {
         for(Telefone t : cliente.getTelefones()) {
             System.out.println("🔸 Telefone: " + '(' + t.getDdd() + ')' + ' ' + t.getNumero());
         }
-        System.out.println("🔹 Consumo total: R$ " + cliente.getConsumoTotal()); 
+        if (cliente.getConsumoTotal() == null) {
+            System.out.println("🔹 Consumo total: R$ 0.00"); 
+        } else {
+            System.out.println("🔹 Consumo total: R$ " + cliente.getConsumoTotal()); 
+        }
+        
     }
 }

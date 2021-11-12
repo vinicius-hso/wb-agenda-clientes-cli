@@ -87,6 +87,6 @@ public class CadastroCliente extends Cadastro {
 		}
 		
 		this.clientes.add(cliente);
-		System.out.println("\n✅ Cliente cadastrado com sucesso!\n");
+		System.out.println("\n✅ Cliente cadastrado com sucesso!");
 	}
 }

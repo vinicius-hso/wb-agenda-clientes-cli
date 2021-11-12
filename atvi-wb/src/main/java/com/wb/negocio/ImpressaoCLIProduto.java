@@ -10,12 +10,10 @@ public class ImpressaoCLIProduto implements ImpressaoCLI {
     }
 
     public void imprimir() {
-        
-        System.out.println("\n🔸 Produto: " + produto.nome);
+        System.out.println("\n🔸 " + produto.tipo + ": " + produto.nome);
         System.out.println("🔸 Preço: R$ " + produto.preco);
         System.out.println("🔸 Categoria: " + produto.categoria);
         System.out.println("🔸 Código: " + produto.codigo);
-        
     }
     
 }

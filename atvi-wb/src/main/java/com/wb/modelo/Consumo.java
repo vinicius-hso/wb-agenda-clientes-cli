@@ -4,25 +4,35 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Consumo {
-    // private List<Produto> produtos;
+    
 	// private List<Servico> servicos;
     // private Cliente cliente;
 
-    private List<ProdutoConsumido> produtosConsumidos;
+    // private List<ProdutoConsumido> produtosConsumidos;
     private Double precoTotal;
     private LocalDate dataConsumo;
     private String nomeCliente;
     private CPF cpfCliente;
 
+    private Cliente cliente;
+    private List<Produto> produtosConsumidos;
+
     public Consumo(){
 
+    }
+
+    public Consumo(List<Produto> produtosConsumidos, Double precoTotal,  Cliente cliente){
+        this.produtosConsumidos = produtosConsumidos;
+        this.precoTotal = precoTotal;
+        this.dataConsumo = LocalDate.now();
+        this.cliente = cliente;
     }
     
     public Consumo(List<ProdutoConsumido> produtosConsumidos, Double precoTotal,
             String nomeCliente, CPF cpfCliente) {
         // this.produtos = produtos;
         // this.servicos = servicos;
-        this.produtosConsumidos = produtosConsumidos;
+        // this.produtosConsumidos = produtosConsumidos;
         this.precoTotal = precoTotal;
         this.nomeCliente = nomeCliente;
         this.dataConsumo = LocalDate.now();
@@ -45,11 +55,23 @@ public class Consumo {
     //     this.servicos = servicos;
     // }
 
-    public List<ProdutoConsumido> getProdutosConsumidos() {
+    // public List<ProdutoConsumido> getProdutosConsumidos() {
+    //     return produtosConsumidos;
+    // }
+
+    // public void setProdutosConsumidos(List<ProdutoConsumido> produtosConsumidos) {
+    //     this.produtosConsumidos = produtosConsumidos;
+    // }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public List<Produto> getProdutosConsumidos() {
         return produtosConsumidos;
     }
 
-    public void setProdutosConsumidos(List<ProdutoConsumido> produtosConsumidos) {
+    public void setProdutosConsumidos(List<Produto> produtosConsumidos) {
         this.produtosConsumidos = produtosConsumidos;
     }
 
@@ -60,6 +82,15 @@ public class Consumo {
     public void setPrecoTotal(Double precoTotal) {
         this.precoTotal = precoTotal;
     }
+
+    // public void setPrecoTotal(List<Produto> produtosConsumidos) {
+    //     this.produtosConsumidos = produtosConsumidos;
+    //     Double total = 0.0;
+    //     for (Produto produto : produtosConsumidos) {
+    //         total += produto.getPreco();
+    //     }
+    //     this.precoTotal = total;
+    // }
 
     public LocalDate getDataConsumo() {
         return dataConsumo;

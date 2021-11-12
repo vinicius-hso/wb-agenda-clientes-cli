@@ -28,7 +28,8 @@ public class ListarTodosClientes extends Listagem {
 		System.out.println("\n4️⃣  - TOP 5 em valor");
 		System.out.println("5️⃣  - TOP 10 em produtos");
 		System.out.println("6️⃣  - BOTTOM 10 em produtos");
-		System.out.print("\n🟡 Operação desejada: ");
+		// System.out.print("\n🟡 Operação desejada: ");
+		System.out.print("\n❔ ");
 		int operacao = entrada.receberNumeroInteiro();
 		String genero = "T";
 		switch (operacao) {
@@ -60,6 +61,7 @@ public class ListarTodosClientes extends Listagem {
 				System.out.println("\n🚫 Operação inválida!\n");
 				break;
 		}
+		System.out.println("\n👨👩 CLIENTES:");
 		if (genero == "Outro") {
 			for (Cliente cliente : clientes) {
 				this.impressao = new ImpressaoCLICliente(cliente);

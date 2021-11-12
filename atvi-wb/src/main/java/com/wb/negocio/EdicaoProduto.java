@@ -23,7 +23,8 @@ public class EdicaoProduto extends Edicao {
 			System.out.println("4️⃣  - Preço");
 			System.out.println("5️⃣  - Código");
             System.out.println("6️⃣  - Sair");
-            System.out.print("\n🟡 Qual operação deseja realizar? ");
+            // System.out.print("\n🟡 Qual operação deseja realizar? ");
+            System.out.print("\n❔ ");
 
 			Entrada entrada = new Entrada();
 			int operacao = entrada.receberNumeroInteiro();
@@ -34,7 +35,8 @@ public class EdicaoProduto extends Edicao {
                     while (exec) {
                         System.out.println("\n🟡 Tipo: ");
                         System.out.print("\n1️⃣  - Produto\n2️⃣  - Serviço\n");
-                        System.out.print("\n🟡 Operação desejada: ");
+                        // System.out.print("\n🟡 Operação desejada: ");
+                        System.out.print("\n❔ ");
                         int operacaoGenero = entrada.receberNumeroInteiro();
                         switch (operacaoGenero) {
                             case 1:
@@ -58,7 +60,8 @@ public class EdicaoProduto extends Edicao {
                     while (execCategoria) {
                         System.out.println("\n🟡 Categoria: ");
                         System.out.print("\n1️⃣  - Masculino\n2️⃣  - Feminino\n3️⃣  - Unisex\n");
-                        System.out.print("\n🟡 Operação desejada: ");
+                        // System.out.print("\n🟡 Operação desejada: ");
+                        System.out.print("\n❔ ");
                         int operacaoGenero = entrada.receberNumeroInteiro();
                         switch (operacaoGenero) {
                             case 1:

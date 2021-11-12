@@ -30,12 +30,12 @@ public class BuscaProduto extends Busca {
                 System.out.println("\n1️⃣  - Editar produto");
 		        System.out.println("2️⃣  - Deletar produto");
                 System.out.println("3️⃣  - Cancelar");
-                System.out.print("\n🟡 Operação desejada: ");
+                // System.out.print("\n🟡 Operação desejada: ");
+                System.out.print("\n❔ ");
                 Entrada novaEntrada = new Entrada();
                 int operacao = novaEntrada.receberNumeroInteiro();
                 switch (operacao) {
                     case 1:
-                        //* TODO -> Edicao Produto
                         Edicao edicaoProd = new EdicaoProduto(prod);
                         edicaoProd.editar();
                         break;

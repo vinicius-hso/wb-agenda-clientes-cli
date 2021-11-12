@@ -118,10 +118,32 @@ public class App {
 			// 	Listagem listagemServicos = new ListarTodosServicos(empresa.getServicos());
 			// 	listagemServicos.listar();
 			// 	break;
-			// case 7:
-			// 	Cadastro cadastroConsumo = new CadastroConsumo(empresa.getConsumos(), empresa.getClientes());
-			// 	cadastroConsumo.cadastrar();
-			// 	break;
+			case 3:
+				System.out.println("\n📦  CONSUMOS\n");
+				System.out.println("1️⃣  - Registrar consumo");
+				System.out.println("2️⃣  - Listar consumo");
+				// System.out.println("3️⃣  - Buscar Produto/Serviço");
+				System.out.println("3️⃣  - Voltar");
+				System.out.print("\n🟡 Qual operação deseja realizar? ");
+				Entrada entradaConsumo = new Entrada();
+				int operacaoConsumo = entradaConsumo.receberNumeroInteiro();
+
+				switch (operacaoConsumo) {
+					case 1:
+						Cadastro cadastroConsumo = new CadastroConsumo(empresa.getConsumos(), empresa.getClientes(), empresa.getProdutos());
+						cadastroConsumo.cadastrar();
+						break;
+					case 2:
+						Listagem listarConsumo = new ListarConsumo(empresa.getConsumos());
+						listarConsumo.listar();
+						break;
+					case 3:
+						break;
+					default:
+						System.out.println("\n🚫 Operação inválida!\n");
+				}
+				
+				break;
 			// case 8:
 			// 	Listagem listarConsumo = new ListarConsumo(empresa.getConsumos());
 			// 	listarConsumo.listar();

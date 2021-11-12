@@ -14,8 +14,8 @@ public class ListarTodosProdutos extends Listagem {
 
 	@Override
 	public void listar() {
-		System.out.println("\n📦  LISTA DE PRODUTOS/SERVIÇOS:");
-		System.out.println("\n🏷️ POR TIPO:");
+		System.out.println("\n📦 LISTA DE PRODUTOS/SERVIÇOS:");
+		System.out.println("\n🏷️  POR TIPO:");
 		Entrada entrada = new Entrada();
 		System.out.println("\n1️⃣  - Produto");
 		System.out.println("2️⃣  - Serviço");
@@ -24,15 +24,39 @@ public class ListarTodosProdutos extends Listagem {
 		// System.out.println("\n4️⃣  - TOP 5 em valor");
 		// System.out.println("5️⃣  - TOP 10 em produtos");
 		// System.out.println("6️⃣  - BOTTOM 10 em produtos");
-		System.out.print("\n🟡 Operação desejada: ");
+		// System.out.print("\n🟡 Operação desejada: ");
+		System.out.print("\n❔ ");
 		int operacao = entrada.receberNumeroInteiro();
+		String filtro = "";
 
+		switch (operacao) {
+			case 1:
+				filtro = "Produto";
+				System.out.println("\n🔷 PRODUTOS");
+				break;
+			case 2:
+				filtro = "Serviço";
+				System.out.println("\n🔷 SERVIÇOS");
+				break;
+			case 3:
+				filtro = "Todos";
+				System.out.println("\n🔷 PRODUTOS & SERVIÇOS");
+				break;
+			default:
+				System.out.println("\n🚫 Operação inválida!\n");
+		}
 
 		for (Produto produto : produtos) {
-			System.out.println("\n🔸 Nome: " + produto.nome);
-			System.out.println("🔸 Preço: " + produto.preco);
-			System.out.println("🔸 Categoria: " + produto.categoria);
-			System.out.println("🔸 Código: " + produto.codigo);
+			if (filtro.equals("Todos")) {
+				ImpressaoCLI impressaoProd = new ImpressaoCLIProduto(produto);
+				impressaoProd.imprimir();
+			} else {
+				if (filtro.equals(produto.tipo)) {
+					ImpressaoCLI impressaoProd = new ImpressaoCLIProduto(produto);
+					impressaoProd.imprimir();
+				}
+			}
+			
 		}
 	}
 
