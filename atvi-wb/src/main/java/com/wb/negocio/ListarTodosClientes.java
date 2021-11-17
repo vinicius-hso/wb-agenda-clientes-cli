@@ -8,7 +8,7 @@ import com.wb.modelo.Empresa;
 
 public class ListarTodosClientes extends Listagem {
 	private List<Cliente> clientes;
-	private Empresa empresa = new Empresa();
+	// private Empresa empresa = new Empresa();
 	private ImpressaoCLI impressao;
 
 	public ListarTodosClientes(List<Cliente> clientes) {
@@ -25,9 +25,9 @@ public class ListarTodosClientes extends Listagem {
 		System.out.println("2️⃣  - Feminino");
 		System.out.println("3️⃣  - Todos");
 		System.out.println("\n💰 POR CONSUMO:");
-		System.out.println("\n4️⃣  - TOP 5 em valor");
-		System.out.println("5️⃣  - TOP 10 em produtos");
-		System.out.println("6️⃣  - BOTTOM 10 em produtos");
+		System.out.println("\n4️⃣  - 5 MAIS em valor de consumo");
+		System.out.println("5️⃣  - 10 MAIS em quantidade de produtos");
+		System.out.println("6️⃣  - 10 MENOS em quantidade de produtos");
 		// System.out.print("\n🟡 Operação desejada: ");
 		System.out.print("\n❔ ");
 		int operacao = entrada.receberNumeroInteiro();
@@ -44,22 +44,20 @@ public class ListarTodosClientes extends Listagem {
 				genero = "Outro";
 				break;
 			case 4:
-				//* Listar os 5 mais (valor)
-				System.out.println("\n💵 TOP 5 em valor");
+				System.out.println("\n💵 5 MAIS em valor de consumo");
 				Listagem listar5MaisClientes = new Listar5MaisClientes(clientes);
 				listar5MaisClientes.listar();
-				// break;
 				return;
 			case 5:
-				//* Listar os 10 que mais consumiram em quantidade de produtos
-				System.out.println("\n🛍️ ➕ TOP 10 EM PRODUTOS");
+				System.out.println("\n🛍️ ➕ 10 MAIS em quantidade de produtos");
 				Listagem listar10Mais = new Listar10MaisEmProduto(clientes);
 				listar10Mais.listar();
 				return;
 			case 6:
-				// TODO - Listar os 10 menos (produtos)
-				System.out.println("\n🛍️ ➖ BOTTOM 10 em produtos");
-				break;
+				System.out.println("\n🛍️ ➖ 10 MENOS em quantidade de produtos");
+				Listagem listar10Menos = new Listar10MenosEmProduto(clientes);
+				listar10Menos.listar();
+				return;
 			default:
 				System.out.println("\n🚫 Operação inválida!\n");
 				break;

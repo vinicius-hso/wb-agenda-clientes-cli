@@ -2,12 +2,9 @@ package com.wb.negocio;
 
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import java.util.SortedSet;
 import java.util.TreeMap;
-import java.util.TreeSet;
 import java.util.Map.Entry;
 
 import com.wb.modelo.Cliente;
@@ -16,7 +13,6 @@ import com.wb.modelo.Produto;
 
 public class Listar10MaisEmProduto extends Listagem {
     private List<Cliente> clientes;
-    private ImpressaoCLI impressao;
 
     public Listar10MaisEmProduto(List<Cliente> clientes) {
         this.clientes = clientes;
