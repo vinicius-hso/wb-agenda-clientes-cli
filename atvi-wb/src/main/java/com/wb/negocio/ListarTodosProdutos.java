@@ -14,7 +14,7 @@ public class ListarTodosProdutos extends Listagem {
 
 	@Override
 	public void listar() {
-		System.out.println("\n📦 LISTA DE PRODUTOS/SERVIÇOS:");
+		System.out.println("\n📦 LISTA DE PRODUTOS/SERVIÇOS");
 		System.out.println("\n🏷️  POR TIPO:");
 		Entrada entrada = new Entrada();
 		System.out.println("\n1️⃣  - Produto");

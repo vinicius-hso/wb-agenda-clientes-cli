@@ -46,13 +46,16 @@ public class ListarTodosClientes extends Listagem {
 			case 4:
 				//* Listar os 5 mais (valor)
 				System.out.println("\n💵 TOP 5 em valor");
-				Listagem listar5MaisClientes = new Listar5MaisClientes(empresa.getClientes());
+				Listagem listar5MaisClientes = new Listar5MaisClientes(clientes);
 				listar5MaisClientes.listar();
-				break;
+				// break;
+				return;
 			case 5:
-				// TODO - Listar os 10 mais (produtos)
-				System.out.println("\n🛍️ ➕ TOP 10 em produtos");
-				break;
+				//* Listar os 10 que mais consumiram em quantidade de produtos
+				System.out.println("\n🛍️ ➕ TOP 10 EM PRODUTOS");
+				Listagem listar10Mais = new Listar10MaisEmProduto(clientes);
+				listar10Mais.listar();
+				return;
 			case 6:
 				// TODO - Listar os 10 menos (produtos)
 				System.out.println("\n🛍️ ➖ BOTTOM 10 em produtos");
@@ -61,13 +64,15 @@ public class ListarTodosClientes extends Listagem {
 				System.out.println("\n🚫 Operação inválida!\n");
 				break;
 		}
-		System.out.println("\n👨👩 CLIENTES:");
+		
 		if (genero == "Outro") {
+			System.out.println("\n👨👩 CLIENTES:");
 			for (Cliente cliente : clientes) {
 				this.impressao = new ImpressaoCLICliente(cliente);
                 impressao.imprimir();
 			}
 		} else {
+			System.out.println("\n👨👩 CLIENTES:");
 			for (Cliente cliente : clientes) {
 				if (cliente.getGenero().equalsIgnoreCase(genero)) {
 					this.impressao = new ImpressaoCLICliente(cliente);
