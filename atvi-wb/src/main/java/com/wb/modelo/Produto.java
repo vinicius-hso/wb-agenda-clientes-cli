@@ -2,7 +2,7 @@ package com.wb.modelo;
 
 import java.time.LocalDate;
 
-public class Produto {
+public class Produto implements Comparable<Produto> {
 	public String nome;
 	public Double preco;
 	public String categoria;
@@ -74,5 +74,11 @@ public class Produto {
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+
+	@Override
+	public int compareTo(Produto o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

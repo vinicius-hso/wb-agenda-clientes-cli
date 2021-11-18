@@ -45,7 +45,7 @@ public class App {
 			case 1:
 				System.out.println("\n👤  CLIENTES\n");
 				System.out.println("1️⃣  - Cadastrar cliente");
-				System.out.println("2️⃣  - Listar todos clientes");
+				System.out.println("2️⃣  - Listar clientes");
 				System.out.println("3️⃣  - Buscar cliente");
 				System.out.println("4️⃣  - Voltar");
 				System.out.print("\n🟡 Qual operação deseja realizar? ");
@@ -87,7 +87,7 @@ public class App {
 						cadastroProduto.cadastrar();
 						break;
 					case 2:
-						Listagem listagemProdutos = new ListarTodosProdutos(empresa.getProdutos());
+						Listagem listagemProdutos = new ListarTodosProdutos(empresa.getProdutos(), empresa.getConsumos());
 						listagemProdutos.listar();
 						break;
 					case 3:
