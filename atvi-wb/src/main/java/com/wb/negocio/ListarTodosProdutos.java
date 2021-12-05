@@ -23,34 +23,41 @@ public class ListarTodosProdutos extends Listagem {
 		System.out.println("\n1️⃣  - Produto");
 		System.out.println("2️⃣  - Serviço");
 		System.out.println("3️⃣  - Todos");
-		System.out.println("4️⃣  - Mais consumidos");
+		System.out.println("4️⃣  - 10 Mais consumidos");
+		System.out.println("5️⃣  - Mais consumidos por gênero");
 		// System.out.println("\n💰 POR CONSUMO:");
 		// System.out.println("\n4️⃣  - TOP 5 em valor");
 		// System.out.println("5️⃣  - TOP 10 em produtos");
 		// System.out.println("6️⃣  - BOTTOM 10 em produtos");
 		// System.out.print("\n🟡 Operação desejada: ");
 		System.out.print("\n❔ ");
-		int operacao = entrada.receberNumeroInteiro();
+		// int operacao = entrada.receberNumeroInteiro();
+		String operacao = entrada.receberTexto();
 		String filtro = "";
 
 		switch (operacao) {
-			case 1:
+			case "1":
 				filtro = "Produto";
 				System.out.println("\n🔷 PRODUTOS");
 				break;
-			case 2:
+			case "2":
 				filtro = "Serviço";
 				System.out.println("\n🔷 SERVIÇOS");
 				break;
-			case 3:
+			case "3":
 				filtro = "Todos";
 				System.out.println("\n🔷 PRODUTOS & SERVIÇOS");
 				break;
-			case 4:
+			case "4":
 				System.out.println("\n🔷 PRODUTOS & SERVIÇOS MAIS CONSUMIDOS");
 				Listagem listaMaisConsumidos = new ListarMaisConsumidos(produtos, consumos);
 				listaMaisConsumidos.listar();
 				return;
+			case "5":
+				System.out.println("\n🔷 PRODUTOS & SERVIÇOS MAIS CONSUMIDOS");
+				Listagem listaMaisConsumidosGenero = new ListarMaisConsumidosGenero(produtos, consumos);
+				listaMaisConsumidosGenero.listar();
+				break;
 			default:
 				System.out.println("\n🚫 Operação inválida!\n");
 		}

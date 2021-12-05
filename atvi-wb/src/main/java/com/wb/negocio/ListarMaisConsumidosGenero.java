@@ -7,32 +7,63 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.wb.io.Entrada;
 import com.wb.modelo.Consumo;
 import com.wb.modelo.ConsumoProduto;
 import com.wb.modelo.Produto;
 
-public class ListarMaisConsumidos extends Listagem {
+public class ListarMaisConsumidosGenero extends Listagem {
     private List<Produto> produtos;
     private List<Consumo> consumos;
 
-    public ListarMaisConsumidos(List<Produto> produtos, List<Consumo> consumos) {
+    public ListarMaisConsumidosGenero(List<Produto> produtos, List<Consumo> consumos) {
         this.produtos = produtos;
         this.consumos = consumos;
     }
 
     @Override
     public void listar() {
+
+        String categoria = "Unisex";
+
+        System.out.println("\n📦  MAIS CONSUMIDOS\n");
+        System.out.println("1️⃣  - Por gênero Masculino");
+        System.out.println("2️⃣  - Por gênero Feminino");
+        System.out.println("3️⃣  - Todos");
+        System.out.println("4️⃣  - Voltar");
+        System.out.print("\n🟡 Qual operação deseja realizar? ");
+
+        Entrada entradaProd = new Entrada();
+        String opProd = entradaProd.receberTexto();
+        switch (opProd) {
+            case "1":
+                categoria = "Masculino";
+                break;
+            case "2":
+                categoria = "Feminino";
+                break;
+            case "3":
+                categoria = "Unisex";
+                break;
+            case "4":
+                break;
+            default:
+                System.out.println("\n🚫 Operação inválida!\n");
+        }
+        
         Map<Produto, Integer> myDict = new HashMap<Produto, Integer>();
 
         for (Produto produto : produtos) {
             int total = 0;
             myDict.put(produto, total);
         }
-
+        
         for (Consumo consumo : consumos) {
             List<Produto> produtos = consumo.getProdutosConsumidos();
             for (Produto produto : produtos) {
-                myDict.merge(produto, 1, (a,b) -> a+b);
+                if (produto.getCategoria() == categoria) {
+                    myDict.merge(produto, 1, (a,b) -> a+b);
+                }
             }
         }
 
@@ -40,7 +71,7 @@ public class ListarMaisConsumidos extends Listagem {
         List<ConsumoProduto> consumosProdutos = new ArrayList<ConsumoProduto>();
 
         for(Produto produto : prodKeys) {
-            if (myDict.get(produto) > 0) {
+            if (produto.getCategoria() == categoria && myDict.get(produto) > 0) {
                 int consumo = myDict.get(produto);
                 ConsumoProduto consProd = new ConsumoProduto(consumo,  produto.nome);
                 consumosProdutos.add(consProd);
@@ -53,23 +84,11 @@ public class ListarMaisConsumidos extends Listagem {
             System.out.println("\n🔴 Ainda não há registro de consumo de produtos!");
         } else {
             int c = 1;
-            if (consumosProdutos.size() <= 10) {
-                for(ConsumoProduto cP : consumosProdutos) {
+            for(ConsumoProduto cP : consumosProdutos) {
                     System.out.println("\n#️⃣  Produto Nº " + c);
                     System.out.println("\n🔸 Produto/Serviço: " + cP.nome);
                     System.out.println("🔸 Total de Produtos Consumidos: " + cP.qntConsumo);
                     c++;
-                }
-            } else {
-                for(ConsumoProduto cP : consumosProdutos) {
-                    System.out.println("\n#️⃣  Produto Nº " + c);
-                    System.out.println("\n🔸 Produto/Serviço: " + cP.nome);
-                    System.out.println("🔸 Total de Produtos Consumidos: " + cP.qntConsumo);
-                    c++;
-                    if (c > 10) {
-                        break;
-                    }
-                }
             }
         }
     }

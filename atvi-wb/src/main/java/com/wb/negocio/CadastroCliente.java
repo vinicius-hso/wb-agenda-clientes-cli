@@ -37,11 +37,11 @@ public class CadastroCliente extends Cadastro {
 			int operacao = entrada.receberNumeroInteiro();
 			switch (operacao) {
 				case 1:
-					g = "M";
+					g = "Masculino";
 					exec = false;
 					break;
 				case 2:
-					g = "F";
+					g = "Feminino";
 					exec = false;
 					break;
 				case 3:

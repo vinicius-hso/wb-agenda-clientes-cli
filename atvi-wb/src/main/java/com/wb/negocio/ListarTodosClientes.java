@@ -30,30 +30,31 @@ public class ListarTodosClientes extends Listagem {
 		System.out.println("6️⃣  - 10 MENOS em quantidade de produtos");
 		// System.out.print("\n🟡 Operação desejada: ");
 		System.out.print("\n❔ ");
-		int operacao = entrada.receberNumeroInteiro();
+		// int operacao = entrada.receberNumeroInteiro();
+		String operacao = entrada.receberTexto();
 		String genero = "T";
 		switch (operacao) {
 			//* Masculino
-			case 1:
+			case "1":
 				genero = "M";
 				break;
-			case 2:
+			case "2":
 				genero = "F";
 				break;
-			case 3:
+			case "3":
 				genero = "Outro";
 				break;
-			case 4:
+			case "4":
 				System.out.println("\n💵 5 MAIS em valor de consumo");
 				Listagem listar5MaisClientes = new Listar5MaisClientes(clientes);
 				listar5MaisClientes.listar();
 				return;
-			case 5:
+			case "5":
 				System.out.println("\n🛍️ ➕ 10 MAIS em quantidade de produtos");
 				Listagem listar10Mais = new Listar10MaisEmProduto(clientes);
 				listar10Mais.listar();
 				return;
-			case 6:
+			case "6":
 				System.out.println("\n🛍️ ➖ 10 MENOS em quantidade de produtos");
 				Listagem listar10Menos = new Listar10MenosEmProduto(clientes);
 				listar10Menos.listar();
