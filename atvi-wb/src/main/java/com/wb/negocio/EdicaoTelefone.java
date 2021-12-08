@@ -22,20 +22,28 @@ public class EdicaoTelefone extends Edicao{
         }
         System.out.print("\n🟡 Qual telefone deseja editar?");
         Entrada entrada = new Entrada();
-        int operacao = entrada.receberNumeroInteiro();
-        while (operacao < 1 || operacao > telefones.size()) {
-            System.out.println("\n❌ Telefone inválido! Tente novamente.");
-            System.out.print("\n🟡 Qual telefone deseja editar? ");
-            operacao = entrada.receberNumeroInteiro();
+
+        boolean flag = true;
+        while (flag) {
+            String operacao = entrada.receberTexto();
+            if (operacao != null && operacao.matches("[0-9.]+")) {
+                int op = Integer.parseInt(operacao);
+                if (op > telefones.size() || op ==  0) {
+                    System.out.println("\n❌ Telefone inválido! Tente novamente.");
+                    System.out.print("\n🟡 Qual Telefone deseja editar? ");
+                } else {
+                    telefones.remove(op-1);
+                    flag = false;
+                }
+            } else {
+                System.out.println("\n❌ Telefone inválido! Tente novamente.");
+                System.out.print("\n🟡 Qual Telefone deseja editar? ");
+            }
         }
-        telefones.remove(operacao-1);
-        System.out.print("\nℹ️  DDD: ");
-        Entrada novaEntrada = new Entrada();
-		String ddd = novaEntrada.receberTexto();
-		System.out.print("ℹ️  Número: ");
-		String numero = novaEntrada.receberTexto();
-		Telefone novoTel = new Telefone(ddd, numero);
-        telefones.add(novoTel);
-        System.out.println("\n✅ Telefone editado com sucesso!\n");
+
+        Cadastro cadastroTel = new CadastroTelefone(telefones);
+		cadastroTel.cadastrar();
+
+        System.out.println("\n✅ Telefone editado com sucesso!");
     }
 }

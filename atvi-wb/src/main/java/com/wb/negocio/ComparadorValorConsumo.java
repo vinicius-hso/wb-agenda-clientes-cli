@@ -13,11 +13,4 @@ public class ComparadorValorConsumo implements Comparator<Cliente> {
         o2.setConsumoTotal();
         return o1.getConsumoTotal().compareTo(o2.getConsumoTotal());
     }
-
-    // private Double valorTotal(List<Consumo> consumos) {
-    //     Double valorTotal = 0.0;
-
-    //     return valorTotal;
-    // }
-    
 }

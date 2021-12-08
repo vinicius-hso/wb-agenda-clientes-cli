@@ -26,29 +26,37 @@ public class BuscaProduto extends Busca {
                 prod = produto;
                 ImpressaoCLI impProd = new ImpressaoCLIProduto(prod);
                 impProd.imprimir();
-                System.out.println("\n🔵 Ações:");
-                System.out.println("\n1️⃣  - Editar produto");
-		        System.out.println("2️⃣  - Deletar produto");
-                System.out.println("3️⃣  - Cancelar");
-                // System.out.print("\n🟡 Operação desejada: ");
-                System.out.print("\n❔ ");
-                Entrada novaEntrada = new Entrada();
-                int operacao = novaEntrada.receberNumeroInteiro();
-                switch (operacao) {
-                    case 1:
-                        Edicao edicaoProd = new EdicaoProduto(prod);
-                        edicaoProd.editar();
-                        break;
-                    case 2:
-                        produtos.remove(produto);
-                        System.out.println("\n✅ Produto removido com sucesso!");
-                        break;
-                    case 3:
-                        break;
-                    default:
-                        System.out.println("\n🚫 Operação inválida!\n");
+
+                boolean exec = true;
+                while (exec) {
+                    System.out.println("\n🔵 Operações:");
+                    System.out.println("\n1️⃣  - Editar produto");
+                    System.out.println("2️⃣  - Deletar produto");
+                    System.out.println("3️⃣  - Cancelar");
+                    System.out.print("\n🟡 Operação desejada: ");
+                    
+                    Entrada novaEntrada = new Entrada();
+                    String operacao = novaEntrada.receberTexto();
+                    switch (operacao) {
+                        case "1":
+                            Edicao edicaoProd = new EdicaoProduto(prod);
+                            edicaoProd.editar();
+                            exec = false;
+                            break;
+                        case "2":
+                            produtos.remove(produto);
+                            System.out.println("\n✅ Produto removido com sucesso!");
+                            exec = false;
+                            break;
+                        case "3":
+                            exec = false;
+                            break;
+                        default:
+                            System.out.println("\n🚫 Operação inválida!");
+                    }
                 }
-                break;
+                
+                // break;
             }
         }
         if (prod == null) System.out.println("\n❌ Não foi possível encontrar o produto/serviço informado!");      

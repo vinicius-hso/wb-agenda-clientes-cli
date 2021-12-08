@@ -9,13 +9,24 @@ public class Cliente implements Comparable<Cliente> {
 	public String nomeSocial;
 	private String genero;
 	private CPF cpf;
-	private List<RG> rgs;
+	private List<RG> rgs = new ArrayList<RG>();
 	private LocalDate dataCadastro;
-	private List<Telefone> telefones;
-	private List<Consumo> listaConsumo;
+	private List<Telefone> telefones = new ArrayList<Telefone>();
+	private List<Consumo> listaConsumo = new ArrayList<Consumo>();
 	private Double consumoTotal;
+
+	public Cliente(String nome, String nomeSocial, String genero, CPF cpf) {
+		this.nome = nome;
+		this.nomeSocial = nomeSocial;
+		this.genero = genero;
+		this.cpf = cpf;
+		this.rgs = new ArrayList<RG>();
+		this.dataCadastro = LocalDate.now();
+		this.telefones = new ArrayList<Telefone>();
+		this.listaConsumo = new ArrayList<Consumo>();
+	}
 	
-	public Cliente(String nome, String nomeSocial, String genero, CPF cpf, List<Telefone> telefones) {
+	public Cliente(String nome, String nomeSocial, String genero, CPF cpf, List<Telefone> telefones, List<RG> rgs) {
 		this.nome = nome;
 		this.nomeSocial = nomeSocial;
 		this.genero = genero;
@@ -40,11 +51,17 @@ public class Cliente implements Comparable<Cliente> {
 	public List<RG> getRgs() {
 		return rgs;
 	}
+	public void setRgs(List<RG> rgs) {
+		this.rgs = rgs;
+	}
 	public LocalDate getDataCadastro() {
 		return dataCadastro;
 	}
 	public List<Telefone> getTelefones() {
 		return telefones;
+	}
+	public void setTels(List<Telefone> telefones) {
+		this.telefones = telefones;
 	}
 	public List<Consumo> getListaConsumo() {
 		return listaConsumo;

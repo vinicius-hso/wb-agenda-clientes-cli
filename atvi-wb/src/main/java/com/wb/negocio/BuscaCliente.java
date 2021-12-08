@@ -28,27 +28,35 @@ public class BuscaCliente extends Busca {
                 c = cli;
                 impressao = new ImpressaoCLICliente(c);
                 impressao.imprimir();
-                System.out.println("\n🔵 Ações:");
-                System.out.println("\n1️⃣  - Editar cliente");
-		        System.out.println("2️⃣  - Deletar cliente");
-                System.out.println("3️⃣  - Cancelar");
-                System.out.print("\n🟡 Operação desejada: ");
-                Entrada novaEntrada = new Entrada();
-                int operacao = novaEntrada.receberNumeroInteiro();
-                switch (operacao) {
-                    case 1:
-                        Edicao edicaoCliente = new EdicaoCliente(cli);
-                        edicaoCliente.editar();
-                        break;
-                    case 2:
-                        clientes.remove(cli);
-                        System.out.println("\n✅ Cliente removido com sucesso!");
-                        break;
-                    case 3:
-                        break;
-                    default:
-                        System.out.println("\n🚫 Operação inválida!\n");
+                boolean exec = true;
+                while (exec) {
+                    System.out.println("\n🔵 Operações:");
+                    System.out.println("\n1️⃣  - Editar cliente");
+                    System.out.println("2️⃣  - Deletar cliente");
+                    System.out.println("3️⃣  - Cancelar");
+                    System.out.print("\n🟡 Operação desejada: ");
+                    Entrada novaEntrada = new Entrada();                
+                    String operacao = novaEntrada.receberTexto();
+                    switch (operacao) {
+                        case "1":
+                            Edicao edicaoCliente = new EdicaoCliente(cli);
+                            edicaoCliente.editar();
+                            exec = false;
+                            break;
+                        case "2":
+                            clientes.remove(cli);
+                            System.out.println("\n✅ Cliente removido com sucesso!");
+                            exec = false;
+                            break;
+                        case "3":
+                            exec = false;
+                            break;
+                        default:
+                            System.out.println("\n🚫 Operação inválida!");
+                            // break;
+                    }
                 }
+                
                 break;
             }
         }

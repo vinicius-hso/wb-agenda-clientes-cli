@@ -4,10 +4,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.SortedSet;
 import java.util.Map.Entry;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 import com.wb.modelo.Cliente;
 import com.wb.modelo.Consumo;
@@ -23,7 +21,7 @@ public class Listar10MenosEmProduto extends Listagem {
     @Override
     public void listar() {
         
-        Map<Integer, Cliente> myDict = new HashMap<Integer, Cliente>();
+        Map<Cliente, Integer> myDict = new HashMap<Cliente, Integer>();
 
         for (Cliente cliente : clientes) {
             int totalProdutos = 0;
@@ -33,39 +31,43 @@ public class Listar10MenosEmProduto extends Listagem {
                 totalProdutos += produtos.size();
             }
             if (totalProdutos != 0) {
-                myDict.put(totalProdutos, cliente);
+                myDict.put(cliente, totalProdutos);
             }
         }
 
-        // Map<Integer, Cliente> sortedMap = new TreeMap<Integer, Cliente>(myDict);
-        // System.out.println(sortedMap);
-        
-        int c = 1;
-        if (myDict.size() <= 10) {
-            for (Entry<Integer, Cliente> entry : myDict.entrySet()) {
-            Integer key = entry.getKey();
-            Object val = entry.getValue().nome;
-            System.out.println("\n#️⃣  Cliente Nº " + c);
-            System.out.println("\n🔸 Nome: " + val);
-            System.out.println("🔸 Total de Produtos Consumidos: " + key);
-            c++;
-            }
+        if (myDict.isEmpty()) {
+            System.out.println("\n🔴 Ainda não há registro de consumo de produtos & serviços!"); 
         } else {
-            for (Entry<Integer, Cliente> entry : myDict.entrySet()) {
-                Integer key = entry.getKey();
-                Object val = entry.getValue().nome;
-                System.out.println("\n#️⃣  Cliente Nº " + c);
-                System.out.println("\n🔸 Nome: " + val);
-                System.out.println("🔸 Total de Produtos Consumidos: " + key);
-                c++;
-                if (c > 10) {
-                    break;
+            
+            Map<Cliente, Integer> reverseSortedMap = new TreeMap<Cliente, Integer>(Collections.reverseOrder());
+            reverseSortedMap.putAll(myDict);
+        
+            int c = 1;
+            if (reverseSortedMap.size() <= 10) {
+                for (Entry<Cliente, Integer> entry : reverseSortedMap.entrySet()) {
+                    String key = entry.getKey().nome;
+                    Object val = entry.getValue();
+                    System.out.println("\n#️⃣  Cliente Nº " + c);
+                    System.out.println("\n🔸 Nome: " + key);
+                    System.out.println("🔸 Total de Produtos Consumidos: " + val);
+                    c++;
+                }
+            } else {
+                for (Entry<Cliente, Integer> entry : reverseSortedMap.entrySet()) {
+                    String key = entry.getKey().nome;
+                    Object val = entry.getValue();
+                    System.out.println("\n#️⃣  Cliente Nº " + c);
+                    System.out.println("\n🔸 Nome: " + key);
+                    System.out.println("🔸 Total de Produtos Consumidos: " + val);
+                    c++;
+                    if (c > 10) {
+                        break;
+                    }
                 }
             }
-            
+            if (c <= 10) {
+                System.out.println("\n🟠 Apenas " + c-- + " clientes consumiram nosos produtos e serviços!");
+            }
         }
-        
     }
-
-    
 }

@@ -25,30 +25,37 @@ public class ListarMaisConsumidosGenero extends Listagem {
     public void listar() {
 
         String categoria = "Unisex";
+        boolean exec = true;
 
-        System.out.println("\n📦  MAIS CONSUMIDOS\n");
-        System.out.println("1️⃣  - Por gênero Masculino");
-        System.out.println("2️⃣  - Por gênero Feminino");
-        System.out.println("3️⃣  - Todos");
-        System.out.println("4️⃣  - Voltar");
-        System.out.print("\n🟡 Qual operação deseja realizar? ");
+        while (exec) {
+            System.out.println("\n📦  MAIS CONSUMIDOS\n");
+            System.out.println("1️⃣  - Por gênero Masculino");
+            System.out.println("2️⃣  - Por gênero Feminino");
+            System.out.println("3️⃣  - Todos");
+            // System.out.println("4️⃣  - Cancelar");
+            System.out.print("\n🟡 Qual operação deseja realizar? ");
 
-        Entrada entradaProd = new Entrada();
-        String opProd = entradaProd.receberTexto();
-        switch (opProd) {
-            case "1":
-                categoria = "Masculino";
-                break;
-            case "2":
-                categoria = "Feminino";
-                break;
-            case "3":
-                categoria = "Unisex";
-                break;
-            case "4":
-                break;
-            default:
-                System.out.println("\n🚫 Operação inválida!\n");
+            Entrada entradaProd = new Entrada();
+            String opProd = entradaProd.receberTexto();
+            switch (opProd) {
+                case "1":
+                    categoria = "Masculino";
+                    exec = false;
+                    break;
+                case "2":
+                    categoria = "Feminino";
+                    exec = false;
+                    break;
+                case "3":
+                    categoria = "Unisex";
+                    exec = false;
+                    break;
+                // case "4":
+                //     exec = false;
+                //     break;
+                default:
+                    System.out.println("\n🚫 Operação inválida!");
+            }
         }
         
         Map<Produto, Integer> myDict = new HashMap<Produto, Integer>();
@@ -81,7 +88,7 @@ public class ListarMaisConsumidosGenero extends Listagem {
         Collections.sort(consumosProdutos);
 
         if (consumosProdutos.isEmpty()) {
-            System.out.println("\n🔴 Ainda não há registro de consumo de produtos!");
+            System.out.println("\n🔴 Ainda não há registro de consumo de produtos & serviços!");
         } else {
             int c = 1;
             for(ConsumoProduto cP : consumosProdutos) {

@@ -50,7 +50,7 @@ public class ListarMaisConsumidos extends Listagem {
         Collections.sort(consumosProdutos);
 
         if (consumosProdutos.isEmpty()) {
-            System.out.println("\n🔴 Ainda não há registro de consumo de produtos!");
+            System.out.println("\n🔴 Ainda não há registro de consumo de produtos & serviços!");
         } else {
             int c = 1;
             if (consumosProdutos.size() <= 10) {

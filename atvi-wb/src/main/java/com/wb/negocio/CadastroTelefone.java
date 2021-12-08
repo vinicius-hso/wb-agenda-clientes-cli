@@ -16,13 +16,13 @@ public class CadastroTelefone extends Cadastro {
 
 	@Override
 	public void cadastrar() {
-		System.out.println("\n📱 CADASTRO DE TELEFONE: ");
+		System.out.println("\n📱 CADASTRO DE TELEFONE");
 		System.out.print("\nℹ️  DDD: ");
 		String ddd = entrada.receberTexto();
 		System.out.print("ℹ️  Número: ");
 		String numero = entrada.receberTexto();
 		Telefone telefone = new Telefone(ddd, numero);
 		this.telefones.add(telefone);
-		System.out.println("\n✅ Telefone Cadastrado!\n");
+		// System.out.println("\n✅ Telefone cadastrado com sucesso!");
 	}
 }

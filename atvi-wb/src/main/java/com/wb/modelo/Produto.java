@@ -6,7 +6,6 @@ public class Produto implements Comparable<Produto> {
 	public String nome;
 	public Double preco;
 	public String categoria;
-	// public String fornecedor;
 	public int codigo;
 	public LocalDate dataCadastro;
 	public String tipo;
@@ -35,14 +34,6 @@ public class Produto implements Comparable<Produto> {
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
-	
-	// public String getFornecedor() {
-	// 	return fornecedor;
-	// }
-
-	// public void setFornecedor(String fornecedor) {
-	// 	this.fornecedor = fornecedor;
-	// }
 
 	public String getCategoria() {
 		return categoria;

@@ -30,38 +30,12 @@ public class Consumo {
     
     public Consumo(List<ProdutoConsumido> produtosConsumidos, Double precoTotal,
             String nomeCliente, CPF cpfCliente) {
-        // this.produtos = produtos;
-        // this.servicos = servicos;
-        // this.produtosConsumidos = produtosConsumidos;
+       
         this.precoTotal = precoTotal;
         this.nomeCliente = nomeCliente;
         this.dataConsumo = LocalDate.now();
         this.cpfCliente = cpfCliente;
     }
-
-    // public List<Produto> getProdutos() {
-    //     return produtos;
-    // }
-
-    // public void setProdutos(List<Produto> produtos) {
-    //     this.produtos = produtos;
-    // }
-
-    // public List<Servico> getServicos() {
-    //     return servicos;
-    // }
-
-    // public void setServicos(List<Servico> servicos) {
-    //     this.servicos = servicos;
-    // }
-
-    // public List<ProdutoConsumido> getProdutosConsumidos() {
-    //     return produtosConsumidos;
-    // }
-
-    // public void setProdutosConsumidos(List<ProdutoConsumido> produtosConsumidos) {
-    //     this.produtosConsumidos = produtosConsumidos;
-    // }
 
     public Cliente getCliente() {
         return cliente;
@@ -82,15 +56,6 @@ public class Consumo {
     public void setPrecoTotal(Double precoTotal) {
         this.precoTotal = precoTotal;
     }
-
-    // public void setPrecoTotal(List<Produto> produtosConsumidos) {
-    //     this.produtosConsumidos = produtosConsumidos;
-    //     Double total = 0.0;
-    //     for (Produto produto : produtosConsumidos) {
-    //         total += produto.getPreco();
-    //     }
-    //     this.precoTotal = total;
-    // }
 
     public LocalDate getDataConsumo() {
         return dataConsumo;

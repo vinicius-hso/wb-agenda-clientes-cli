@@ -1,6 +1,5 @@
 package com.wb.negocio;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,36 +28,44 @@ public class Listar10MaisEmProduto extends Listagem {
                 List<Produto> produtos = consumo.getProdutosConsumidos();
                 totalProdutos += produtos.size();
             }
-            myDict.put(cliente, totalProdutos);
-        }
-        Map<Cliente, Integer> reverseSortedMap = new TreeMap<Cliente, Integer>(Collections.reverseOrder());
-        reverseSortedMap.putAll(myDict);
-        
-        int c = 1;
-        if (myDict.size() <= 10) {
-            for (Entry<Cliente, Integer> entry : myDict.entrySet()) {
-            String key = entry.getKey().nome;
-            Object val = entry.getValue();
-            System.out.println("\n#️⃣  Cliente Nº " + c);
-            System.out.println("\n🔸 Nome: " + key);
-            System.out.println("🔸 Total de Produtos Consumidos: " + val);
-            c++;
+            // myDict.put(cliente, totalProdutos);
+            if (totalProdutos != 0) {
+                myDict.put(cliente, totalProdutos);
             }
+        }
+        
+        if (myDict.isEmpty()) {
+            System.out.println("\n🔴 Ainda não há registro de consumo de produtos & serviços!");
         } else {
-            for (Entry<Cliente, Integer> entry : myDict.entrySet()) {
+            Map<Cliente, Integer> reverseSortedMap = new TreeMap<Cliente, Integer>();
+            reverseSortedMap.putAll(myDict);
+        
+            int c = 1;
+            if (reverseSortedMap.size() <= 10) {
+                for (Entry<Cliente, Integer> entry : reverseSortedMap.entrySet()) {
                 String key = entry.getKey().nome;
                 Object val = entry.getValue();
                 System.out.println("\n#️⃣  Cliente Nº " + c);
                 System.out.println("\n🔸 Nome: " + key);
                 System.out.println("🔸 Total de Produtos Consumidos: " + val);
                 c++;
-                if (c > 10) {
-                    break;
+                }
+            } else {
+                for (Entry<Cliente, Integer> entry : reverseSortedMap.entrySet()) {
+                    String key = entry.getKey().nome;
+                    Object val = entry.getValue();
+                    System.out.println("\n#️⃣  Cliente Nº " + c);
+                    System.out.println("\n🔸 Nome: " + key);
+                    System.out.println("🔸 Total de Produtos Consumidos: " + val);
+                    c++;
+                    if (c > 10) {
+                        break;
+                    }
                 }
             }
-            
+            if (c <= 10) {
+                System.out.println("\n🟠 Apenas " + c-- + " clientes consumiram nosos produtos e serviços!");
+            }
         }
-        
     }
-    
 }

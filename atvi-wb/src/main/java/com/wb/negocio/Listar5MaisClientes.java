@@ -18,20 +18,17 @@ public class Listar5MaisClientes extends Listagem {
 	public void listar() {
         Collections.sort(clientes, new ComparadorValorConsumo());
         Collections.reverse(clientes);
-        if (clientes.size() > 5) {
-            for (int i = 0; i < 5; ++i) {
-                System.out.println("\n#️⃣ Cliente Nº " + i+1);
+
+        for (int i = 0; i < 5; ++i) {
+            if (clientes.get(i).getConsumoTotal() == 0) {
+                System.out.println("\n🟠 Apenas " + i++ + " clientes consumiram nosos produtos e serviços!"); 
+                break;
+            } else {
+                System.out.println("\n#️⃣  Cliente Nº " + Integer.sum(i, 1));
                 this.impressao = new ImpressaoCLICliente(clientes.get(i));
                 impressao.imprimir();
             }
-        } else {
-            int c = 1;
-            for(Cliente cliente : clientes) {
-                System.out.println("\n#️⃣ Cliente Nº " + c);
-                this.impressao = new ImpressaoCLICliente(cliente);
-                impressao.imprimir();
-                c+=1;
-            }
+            
         }
     }
 
