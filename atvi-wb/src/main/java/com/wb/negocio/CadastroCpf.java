@@ -24,14 +24,24 @@ public class CadastroCpf extends Cadastro {
         System.out.println("\n🗄️ CADASTRO DE CPF");
         System.out.print("\nℹ️  CPF: ");
 		String valorRg = entrada.receberTexto();
-		System.out.print("ℹ️  Data de Emissão CPF [dd/mm/yyyy]: ");
-		String dataRg = entrada.receberTexto();
-		DateTimeFormatter formatoRg = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		LocalDate dataEmissaoRg = LocalDate.parse(dataRg, formatoRg);
-		CPF cpf = new CPF(dataEmissaoRg, valorRg);
-		this.cliente.setCpf(cpf);
-		System.out.println("\n✅ CPF cadastrado com sucesso!\n");
-        
+		
+        boolean isValid = false;
+        while (!isValid) {
+            try {
+                System.out.print("ℹ️  Data de Emissão CPF [dd/mm/yyyy]: ");
+		        String dataRg = entrada.receberTexto();
+		        DateTimeFormatter formatoRg = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                LocalDate dataEmissaoRg = LocalDate.parse(dataRg, formatoRg);
+                CPF cpf = new CPF(dataEmissaoRg, valorRg);
+		        this.cliente.setCpf(cpf);
+		        System.out.println("\n✅ CPF cadastrado com sucesso!");
+                isValid = true;
+            }
+            catch(Exception e) {
+                System.out.println("\n🚫 Data de emissão de CPF inválida!");
+                System.out.println("\n🟡 Utilize o padrão sugerido como exemplo a seguir: 01/01/2021\n");
+            }
+        }
     }
     
 }
