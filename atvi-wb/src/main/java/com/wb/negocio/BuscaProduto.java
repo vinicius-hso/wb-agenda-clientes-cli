@@ -19,10 +19,10 @@ public class BuscaProduto extends Busca {
         System.out.print("\n🟡 Insira o código: ");
         Produto prod = null;
         Entrada entrada = new Entrada();
-        int cod = entrada.receberNumeroInteiro();
+        String cod = entrada.receberTexto();
 
         for (Produto produto : produtos) {
-            if (produto.getCodigo() == cod) {
+            if (produto.getCodigo().equals(cod)) {
                 prod = produto;
                 ImpressaoCLI impProd = new ImpressaoCLIProduto(prod);
                 impProd.imprimir();
@@ -56,7 +56,7 @@ public class BuscaProduto extends Busca {
                     }
                 }
                 
-                // break;
+                break;
             }
         }
         if (prod == null) System.out.println("\n❌ Não foi possível encontrar o produto/serviço informado!");      

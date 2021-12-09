@@ -2,7 +2,6 @@ package com.wb.negocio;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 import com.wb.io.Entrada;
 import com.wb.modelo.CPF;
@@ -10,12 +9,10 @@ import com.wb.modelo.Cliente;
 
 public class CadastroCpf extends Cadastro {
     private Cliente cliente;
-    // private CPF cpf;;
 	private Entrada entrada;
 
     public CadastroCpf(Cliente cliente) {
         this.cliente = cliente;
-        // this.cpf = cpf;
         this.entrada = new Entrada();
     }
 

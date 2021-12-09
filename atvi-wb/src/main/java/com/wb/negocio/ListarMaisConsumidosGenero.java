@@ -32,7 +32,6 @@ public class ListarMaisConsumidosGenero extends Listagem {
             System.out.println("1️⃣  - Por gênero Masculino");
             System.out.println("2️⃣  - Por gênero Feminino");
             System.out.println("3️⃣  - Todos");
-            // System.out.println("4️⃣  - Cancelar");
             System.out.print("\n🟡 Qual operação deseja realizar? ");
 
             Entrada entradaProd = new Entrada();
@@ -50,9 +49,6 @@ public class ListarMaisConsumidosGenero extends Listagem {
                     categoria = "Unisex";
                     exec = false;
                     break;
-                // case "4":
-                //     exec = false;
-                //     break;
                 default:
                     System.out.println("\n🚫 Operação inválida!");
             }

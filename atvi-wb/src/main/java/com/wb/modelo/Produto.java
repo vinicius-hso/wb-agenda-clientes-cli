@@ -6,11 +6,11 @@ public class Produto implements Comparable<Produto> {
 	public String nome;
 	public Double preco;
 	public String categoria;
-	public int codigo;
+	public String codigo;
 	public LocalDate dataCadastro;
 	public String tipo;
 
-	public Produto(String nome, Double preco, String categoria, int codigo, String tipo) {
+	public Produto(String nome, Double preco, String categoria, String codigo, String tipo) {
 		this.nome = nome;
 		this.preco = preco;
 		this.categoria = categoria;
@@ -43,11 +43,11 @@ public class Produto implements Comparable<Produto> {
 		this.categoria = categoria;
 	}
 
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 

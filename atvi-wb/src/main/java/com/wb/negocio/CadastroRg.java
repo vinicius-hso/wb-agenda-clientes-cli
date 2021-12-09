@@ -31,7 +31,7 @@ public class CadastroRg extends Cadastro {
                 LocalDate dataEmissaoRg = LocalDate.parse(dataRg, formatoRg);
                 RG rg = new RG(dataEmissaoRg, valorRg);
                 this.rgs.add(rg);
-                System.out.println("\n✅ RG cadastrado com sucesso!\n");
+                System.out.println("\n✅ RG cadastrado com sucesso!");
                 isValid = true;
             }
             catch(Exception e) {

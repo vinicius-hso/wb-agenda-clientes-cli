@@ -28,7 +28,6 @@ public class Listar10MaisEmProduto extends Listagem {
                 List<Produto> produtos = consumo.getProdutosConsumidos();
                 totalProdutos += produtos.size();
             }
-            // myDict.put(cliente, totalProdutos);
             if (totalProdutos != 0) {
                 myDict.put(cliente, totalProdutos);
             }

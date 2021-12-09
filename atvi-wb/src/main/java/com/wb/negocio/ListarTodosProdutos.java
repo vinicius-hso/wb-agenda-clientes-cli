@@ -29,14 +29,7 @@ public class ListarTodosProdutos extends Listagem {
 			System.out.println("3️⃣  - Todos");
 			System.out.println("4️⃣  - 10 Mais consumidos");
 			System.out.println("5️⃣  - Mais consumidos por gênero");
-			// System.out.println("\n💰 POR CONSUMO:");
-			// System.out.println("\n4️⃣  - TOP 5 em valor");
-			// System.out.println("5️⃣  - TOP 10 em produtos");
-			// System.out.println("6️⃣  - BOTTOM 10 em produtos");
-			// System.out.print("\n🟡 Operação desejada: ");
-			// System.out.print("\n❔ ");
 			System.out.print("\n🟡 Qual operação deseja realizar? ");
-			// int operacao = entrada.receberNumeroInteiro();
 			String operacao = entrada.receberTexto();
 			switch (operacao) {
 				case "1":

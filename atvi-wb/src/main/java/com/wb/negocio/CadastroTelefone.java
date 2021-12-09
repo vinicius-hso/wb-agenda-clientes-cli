@@ -23,6 +23,5 @@ public class CadastroTelefone extends Cadastro {
 		String numero = entrada.receberTexto();
 		Telefone telefone = new Telefone(ddd, numero);
 		this.telefones.add(telefone);
-		// System.out.println("\n✅ Telefone cadastrado com sucesso!");
 	}
 }

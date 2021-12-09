@@ -5,10 +5,6 @@ import java.util.List;
 
 public class Consumo {
     
-	// private List<Servico> servicos;
-    // private Cliente cliente;
-
-    // private List<ProdutoConsumido> produtosConsumidos;
     private Double precoTotal;
     private LocalDate dataConsumo;
     private String nomeCliente;

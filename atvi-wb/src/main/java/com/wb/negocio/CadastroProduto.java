@@ -4,9 +4,6 @@ import java.util.List;
 
 import com.wb.io.Entrada;
 import com.wb.modelo.Produto;
-// import com.wb.modelo.ProdutoFeminino;
-// import com.wb.modelo.ProdutoMasculino;
-// import com.wb.negocio.ImpressaoCLI;
 
 public class CadastroProduto extends Cadastro {
 	private List<Produto> produtos;
@@ -44,14 +41,27 @@ public class CadastroProduto extends Cadastro {
 					System.out.println("\n🚫 Operação inválida!");
 			}
 		}
-		
+
+		Double preco = 0.0;
+		String codigo = "0";
 		System.out.print("\nℹ️  Nome: ");
 		String nome = entrada.receberTexto();
-		System.out.print("ℹ️  Preço: R$ ");
-		Double preco = entrada.receberNumeroDouble();
-		System.out.print("ℹ️  Código: ");
-		Entrada entradaCod = new Entrada();
-		int codigo = entradaCod.receberNumeroInteiro();
+		boolean execPreco = true;
+		while (execPreco) {
+			try {
+				Entrada entradaPreco = new Entrada();
+				System.out.print("ℹ️  Preço: R$ ");
+				String p = entradaPreco.receberTexto();
+				preco = Double.parseDouble(p);
+				System.out.print("ℹ️  Código: ");
+				Entrada entradaCod = new Entrada();
+				codigo = entradaCod.receberTexto();
+				execPreco = false;
+			} catch (Exception e) {
+				System.out.println("\n❌ Preço inválido! Tente novamente.");
+				System.out.println("\n🟡 Utilize PONTO para separar os centavos como no exemplo a seguir: 42.00");
+			}
+		}
 
 		boolean execCategoria = true;
 		while (execCategoria) {

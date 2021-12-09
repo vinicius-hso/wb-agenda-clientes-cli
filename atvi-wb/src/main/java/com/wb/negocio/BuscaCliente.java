@@ -53,7 +53,6 @@ public class BuscaCliente extends Busca {
                             break;
                         default:
                             System.out.println("\n🚫 Operação inválida!");
-                            // break;
                     }
                 }
                 

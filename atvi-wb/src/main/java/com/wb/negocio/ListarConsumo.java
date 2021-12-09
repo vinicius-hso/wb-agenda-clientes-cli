@@ -3,7 +3,6 @@ package com.wb.negocio;
 import java.util.List;
 import com.wb.modelo.Consumo;
 import com.wb.modelo.Produto;
-// import com.wb.modelo.ProdutoConsumido;
 
 public class ListarConsumo extends Listagem {
     private List<Consumo> consumos;

@@ -1,15 +1,12 @@
 package com.wb.negocio;
 
-// import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.wb.io.Entrada;
-// import com.wb.modelo.CPF;
 import com.wb.modelo.Cliente;
 import com.wb.modelo.Consumo;
 import com.wb.modelo.Produto;
-// import com.wb.modelo.ProdutoConsumido;
 
 public class CadastroConsumo extends Cadastro {
 
@@ -18,8 +15,6 @@ public class CadastroConsumo extends Cadastro {
 	private List<Produto> produtosConsumidos = new ArrayList<Produto>();
 	private List<Produto> todosProdutos;
 	private Entrada entrada;
-
-	// private List<ProdutoConsumido> produtosConsumidos = new ArrayList<ProdutoConsumido>();
 
 	public CadastroConsumo(List<Consumo> consumos, List<Cliente> clientes, List<Produto> todosProdutos) {
 		this.consumos = consumos;
@@ -34,15 +29,11 @@ public class CadastroConsumo extends Cadastro {
 		String cpf = null;
 		Cliente cliente = null;
 
-		// CPF cpfCliente;
-		// String nome;
-
 		System.out.println("\n🛍️  REGISTRO DE CONSUMO");
 		//* CADASTRO DE CLIENTE caso não esteja cadastrado
 		boolean execucao = true;
 		while(execucao) {
 			System.out.print("\n🟡 Cliente já cadastrado?\n\n1️⃣  - Sim\n2️⃣  - Não\n");
-			// System.out.print("\n🟡 Operação desejada: ");
 			System.out.print("\n❔ ");
 			int operacao = entrada.receberNumeroInteiro();
 			switch(operacao) {
@@ -62,7 +53,6 @@ public class CadastroConsumo extends Cadastro {
 					break;
 				default:
 					System.out.println("\n🚫 Operação inválida!\n");
-					// break;
 			}
 		}
 
@@ -87,27 +77,32 @@ public class CadastroConsumo extends Cadastro {
 			Entrada entradaCod = new Entrada();
 			System.out.println("\n🟡 Informe");
 			System.out.print("\nℹ️  Código do produto: ");
-			int codigoProd = entradaCod.receberNumeroInteiro();
+			String codigoProd = entradaCod.receberTexto();
 			boolean flag = true;
 			for (Produto prod : todosProdutos) {
-				if (codigoProd == prod.codigo) {
+				if (codigoProd.equals(prod.codigo)) {
 					this.produtosConsumidos.add(prod);
 					flag = false;
 					ImpressaoCLI impressaoProd = new ImpressaoCLIProduto(prod);
 					impressaoProd.imprimir();
 					System.out.println("\n✅ "+ prod.getTipo() + " adicionado ao consumo!");
-					System.out.print("\n🟡 Adicionar outro produto/serviço?\n\n1️⃣  - Sim\n2️⃣  - Não\n");
-					System.out.print("\n❔ ");
-					Entrada entradaCont = new Entrada();
-					int oper = entradaCont.receberNumeroInteiro();
-					switch (oper) {
-						case 1:
-							break;
-						case 2:
-							exec = false;
-							break;
-						default:
-							System.out.println("\n🚫 Operação inválida!\n");
+					boolean execAddProd = true;
+					while (execAddProd) {
+						System.out.print("\n🟡 Adicionar outro produto/serviço?\n\n1️⃣  - Sim\n2️⃣  - Não\n");
+						System.out.print("\n❔ ");
+						Entrada entradaCont = new Entrada();
+						String oper = entradaCont.receberTexto();
+						switch (oper) {
+							case "1":
+								execAddProd = false;
+								break;
+							case "2":
+								execAddProd = false;
+								exec = false;
+								break;
+							default:
+								System.out.println("\n🚫 Operação inválida!");
+						}
 					}
 					break;
 				}
@@ -151,73 +146,6 @@ public class CadastroConsumo extends Cadastro {
 			System.out.print("\n🔸 " + prod.getTipo() + ": " + prod.getNome());
 			System.out.println("\n🔸 Preço: R$ " + prod.getPreco());
 		}
-
-		// //* Dados do cliente
-		// System.out.println("\n🟡 Informe: ");
-		// System.out.print("\nℹ️  Nome do cliente: ");
-		// entrada = new Entrada();
-		// nome = entrada.receberTexto();
-		// System.out.print("ℹ️  CPF do cliente: ");
-		// entrada = new Entrada();
-		// cpf = entrada.receberTexto();
-
-		// //* Buscando o cliente na base de dados
-		// for (Cliente cliente : clientes) {
-		// 	if (cpf.equals(cliente.getCpf().getValor().toString())) {
-				
-		// 		System.out.println("\n✅ Cliente encontrado!");
-		// 		String valor = cliente.getCpf().getValor().toString();
-		// 		LocalDate data = cliente.getCpf().getDataEmissao();
-		// 		cpfCliente = new CPF(data, valor);
-		// 		nome = cliente.nome;
-		// 		System.out.print("\n🔸 Nome: " + cliente.nome);
-		// 		System.out.println("\n🔸 Data de cadastro: " + cliente.getDataCadastro());
-				
-		// 		Consumo consumo = new Consumo(produtosConsumidos, valorTotal, nome, cpfCliente);
-		// 		Cadastro prodCons = new CadastroProdutoConsumido(consumo.getProdutosConsumidos());
-		// 		prodCons.cadastrar();
-
-		// 		int flag2 = 1;
-		// 		while(flag2 == 1) {
-		// 			System.out.print("🟡 Adicionar mais produtos?\n\n1️⃣  - Sim\n2️⃣  - Não\n");
-		// 			System.out.print("\n🟡 Operação desejada: ");
-		// 			int operacao = entrada.receberNumeroInteiro();
-		// 			switch(operacao) {
-		// 				case 2:
-		// 					flag2 = 0;
-		// 					break;
-		// 				case 1:
-		// 					prodCons.cadastrar();
-		// 					break;
-		// 				default:
-		// 					System.out.println("\n🚫 Operação inválida!\n");
-		// 					break;
-		// 			}
-		// 		}
-		// 		//* Calculando o valor total da compra
-		// 		for (ProdutoConsumido prod : produtosConsumidos) {
-		// 			valorTotal += prod.getPreco();
-		// 		}
-		// 		consumo.setPrecoTotal(valorTotal);
-		// 		this.consumos.add(consumo);
-		// 		cliente.getListaConsumo().add(consumo);
-		// 		cliente.setConsumoTotal();
-
-		// 		//* Feedback ao usuário
-		// 		System.out.println("\n✅ Consumo cadastrado!");
-		// 		System.out.print("\n🔹 Cliente: " + nome);
-		// 		System.out.print("\n🔹 CPF: " + cpfCliente.getValor());
-		// 		System.out.println("\n🔹 Valor total: R$ " + valorTotal);
-
-		// 		//* Listando os produtos consumidos
-		// 		for(ProdutoConsumido prod : consumo.getProdutosConsumidos()) {
-		// 			System.out.print("\n🔸 Produto: " + prod.getNome());
-		// 			System.out.println("\n🔸 Preço: R$ " + prod.getPreco());
-		// 		}
-				
-		// 		break;
-		// 	}
-		// }
 		
 	}
 }

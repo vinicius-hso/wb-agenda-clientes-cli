@@ -19,13 +19,10 @@ import com.wb.negocio.Cadastro;
 import com.wb.negocio.CadastroCliente;
 import com.wb.negocio.CadastroConsumo;
 import com.wb.negocio.CadastroProduto;
-// import com.wb.negocio.CadastroServico;
 import com.wb.negocio.Listagem;
-// import com.wb.negocio.Listar5MaisClientes;
 import com.wb.negocio.ListarConsumo;
 import com.wb.negocio.ListarTodosClientes;
 import com.wb.negocio.ListarTodosProdutos;
-// import com.wb.negocio.ListarTodosServicos;
 
 public class App {
 	public static void main(String[] args) {
@@ -34,55 +31,55 @@ public class App {
 		boolean execucao = true;
 
 		//* PRRODUTOS
-		Produto p1 = new Produto("Clareador", 18.99, "Feminino", 0, "Produto");
+		Produto p1 = new Produto("Clareador", 18.99, "Feminino", "0", "Produto");
 		empresa.getProdutos().add(p1);
-		Produto p2 = new Produto("Água oxigenada", 2.99, "Feminino", 1, "Produto");
+		Produto p2 = new Produto("Água oxigenada", 2.99, "Feminino", "1", "Produto");
 		empresa.getProdutos().add(p2);
-		Produto p3 = new Produto("Pó descolorante", 24.69, "Feminino", 2, "Produto");
+		Produto p3 = new Produto("Pó descolorante", 24.69, "Feminino", "2", "Produto");
 		empresa.getProdutos().add(p3);
-		Produto p4 = new Produto("Tonalizante", 32.09, "Feminino", 3, "Produto");
+		Produto p4 = new Produto("Tonalizante", 32.09, "Feminino", "3", "Produto");
 		empresa.getProdutos().add(p4);
-		Produto p5 = new Produto("Coloração", 30.79, "Feminino", 4, "Produto");
+		Produto p5 = new Produto("Coloração", 30.79, "Feminino", "4", "Produto");
 		empresa.getProdutos().add(p5);
-		Produto p6 = new Produto("Sabonete em barra", 2.89, "Masculino", 5, "Produto");
+		Produto p6 = new Produto("Sabonete em barra", 2.89, "Masculino", "5", "Produto");
 		empresa.getProdutos().add(p6);
-		Produto p7 = new Produto("Protetor solar facial", 33.33, "Masculino", 6, "Produto");
+		Produto p7 = new Produto("Protetor solar facial", 33.33, "Masculino", "6", "Produto");
 		empresa.getProdutos().add(p7);
-		Produto p8 = new Produto("Pomada modeladora", 10.49, "Masculino", 7, "Produto");
+		Produto p8 = new Produto("Pomada modeladora", 10.49, "Masculino", "7", "Produto");
 		empresa.getProdutos().add(p8);
-		Produto p9 = new Produto("Loção autobronzeadora", 29.29, "Masculino", 8, "Produto");
+		Produto p9 = new Produto("Loção autobronzeadora", 29.29, "Masculino", "8", "Produto");
 		empresa.getProdutos().add(p9);
-		Produto p10 = new Produto("Óleo para barba", 21.49, "Masculino", 10, "Produto");
+		Produto p10 = new Produto("Óleo para barba", 21.49, "Masculino", "10", "Produto");
 		empresa.getProdutos().add(p10);
 		
-		Produto p11 = new Produto("Corte", 195.00, "Feminino", 11, "Serviço");
+		Produto p11 = new Produto("Corte", 195.00, "Feminino", "11", "Serviço");
 		empresa.getProdutos().add(p11);
-		Produto p12 = new Produto("Pintura", 281.00, "Feminino", 12, "Serviço");
+		Produto p12 = new Produto("Pintura", 281.00, "Feminino", "12", "Serviço");
 		empresa.getProdutos().add(p12);
-		Produto p13 = new Produto("Manicure comum", 30.00, "Feminino", 13, "Serviço");
+		Produto p13 = new Produto("Manicure comum", 30.00, "Feminino", "13", "Serviço");
 		empresa.getProdutos().add(p13);
-		Produto p14 = new Produto("Pedicure comum", 32.00, "Feminino", 14, "Serviço");
+		Produto p14 = new Produto("Pedicure comum", 32.00, "Feminino", "14", "Serviço");
 		empresa.getProdutos().add(p14);
-		Produto p15 = new Produto("Sobrancelha", 25.00, "Feminino", 15, "Serviço");
+		Produto p15 = new Produto("Sobrancelha", 25.00, "Feminino", "15", "Serviço");
 		empresa.getProdutos().add(p15);
-		Produto p16 = new Produto("Depilação de axila", 16.00, "Feminino", 16, "Serviço");
+		Produto p16 = new Produto("Depilação de axila", 16.00, "Feminino", "16", "Serviço");
 		empresa.getProdutos().add(p16);
-		Produto p17 = new Produto("Depilação de buço", 15.00, "Feminino", 17, "Serviço");
+		Produto p17 = new Produto("Depilação de buço", 15.00, "Feminino", "17", "Serviço");
 		empresa.getProdutos().add(p17);
-		Produto p18 = new Produto("Depilação meia perna", 25.00, "Feminino", 18, "Serviço");
+		Produto p18 = new Produto("Depilação meia perna", 25.00, "Feminino", "18", "Serviço");
 		empresa.getProdutos().add(p18);
-		Produto p19 = new Produto("Corte", 145.00, "Masculino", 19, "Serviço");
+		Produto p19 = new Produto("Corte", 145.00, "Masculino", "19", "Serviço");
 		empresa.getProdutos().add(p19);
-		Produto p20 = new Produto("Barba e bigode", 40.00, "Masculino", 20, "Serviço");
+		Produto p20 = new Produto("Barba e bigode", 40.00, "Masculino", "20", "Serviço");
 		empresa.getProdutos().add(p20);
 
-		Produto p21 = new Produto("Remoção de rugas", 200.00, "Unisex", 21, "Serviço");
+		Produto p21 = new Produto("Remoção de rugas", 200.00, "Unisex", "21", "Serviço");
 		empresa.getProdutos().add(p21);
-		Produto p22 = new Produto("Remoção de manchas na pele", 150.00, "Unisex", 22, "Serviço");
+		Produto p22 = new Produto("Remoção de manchas na pele", 150.00, "Unisex", "22", "Serviço");
 		empresa.getProdutos().add(p22);
-		Produto p23 = new Produto("Aplicação de botox", 299.00, "Unisex", 23, "Serviço");
+		Produto p23 = new Produto("Aplicação de botox", 299.00, "Unisex", "23", "Serviço");
 		empresa.getProdutos().add(p23);
-		Produto p24 = new Produto("Tratamento para emagrecimento e redução de medidas", 200.00, "Unisex", 24, "Serviço");
+		Produto p24 = new Produto("Tratamento para emagrecimento e redução de medidas", 200.00, "Unisex", "24", "Serviço");
 		empresa.getProdutos().add(p24);
 
 		//* CLIENTES
@@ -546,11 +543,6 @@ public class App {
 			System.out.println("2️⃣  - Produtos & Serviços");
 			System.out.println("3️⃣  - Consumos");
 			System.out.println("4️⃣  - Sair");
-			// System.out.println("5️⃣  - Cadastrar serviço");
-			// System.out.println("6️⃣  - Listar todos os serviços");
-			// System.out.println("7️⃣  - Cadastrar consumo");
-			// System.out.println("8️⃣  - Listar consumos");
-			// System.out.println("9️⃣  - Sair");
 			System.out.print("\n🟡 Qual operação deseja realizar? ");
 
 			Entrada entrada = new Entrada();
